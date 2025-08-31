@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Aniversário - Lilo & Stitch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico:wght@400&family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Balsamiq Sans', sans-serif;
+            background: linear-gradient(45deg, #87CEEB, #98FB98, #F0E68C, #FFB6C1, #DDA0DD, #F0F8FF);
+            background-size: 600% 600%;
+            animation: gradientShift 10s ease-in-out infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .stitch {
+            position: absolute;
+            font-size: 70px;
+            animation: floatStitch 7s ease-in-out infinite;
+            top: 8%;
+            right: 8%;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+        }
+
+        .lilo {
+            position: absolute;
+            font-size: 65px;
+            animation: floatLilo 9s ease-in-out infinite reverse;
+            top: 25%;
+            left: 3%;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+        }
+
+        .sun {
+            position: absolute;
+            font-size: 50px;
+            animation: rotateSun 15s linear infinite;
+            top: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: drop-shadow(2px 2px 4px rgba(255,165,0,0.5));
+        }
+
+        .palm1 {
+            position: absolute;
+            font-size: 55px;
+            animation: swayPalm 5s ease-in-out infinite;
+            bottom: 15%;
+            right: 2%;
+            transform-origin: bottom center;
+        }
+
+        .palm2 {
+            position: absolute;
+            font-size: 45px;
+            animation: swayPalm 4s ease-in-out infinite reverse;
+            bottom: 35%;
+            left: 8%;
+            transform-origin: bottom center;
+        }
+
+        .hibiscus1 {
+            position: absolute;
+            font-size: 40px;
+            animation: pulse 3s ease-in-out infinite;
+            top: 50%;
+            right: 12%;
+        }
+
+        .hibiscus2 {
+            position: absolute;
+            font-size: 35px;
+            animation: pulse 4s ease-in-out infinite reverse;
+            top: 70%;
+            left: 15%;
+        }
+
+        .ukulele {
+            position: absolute;
+            font-size: 45px;
+            animation: musicFloat 6s ease-in-out infinite;
+            top: 40%;
+            right: 5%;
+        }
+
+        .surfboard {
+            position: absolute;
+            font-size: 50px;
+            animation: wave 8s ease-in-out infinite;
+            bottom: 25%;
+            left: 2%;
+        }
+
+        .pineapple {
+            position: absolute;
+            font-size: 40px;
+            animation: bounce 5s ease-in-out infinite;
+            top: 60%;
+            right: 20%;
+        }
+
+        .coconut {
+            position: absolute;
+            font-size: 35px;
+            animation: roll 10s linear infinite;
+            bottom: 40%;
+            right: 15%;
+        }
+
+        @keyframes floatStitch {
+            0%, 100% { transform: translateY(0px) rotate(-3deg) scale(1); }
+            33% { transform: translateY(-25px) rotate(2deg) scale(1.1); }
+            66% { transform: translateY(-10px) rotate(-1deg) scale(0.95); }
+        }
+
+        @keyframes floatLilo {
+            0%, 100% { transform: translateY(0px) rotate(2deg) scale(1); }
+            50% { transform: translateY(-30px) rotate(-2deg) scale(1.05); }
+        }
+
+        @keyframes rotateSun {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        @keyframes swayPalm {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes musicFloat {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0px) rotate(-10deg); }
+            50% { transform: translateX(20px) rotate(10deg); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        @keyframes roll {
+            from { transform: rotate(0deg) translateX(0px); }
+            to { transform: rotate(360deg) translateX(10px); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 35px 25px;
+            margin: 20px 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            animation: cardEntrance 1s ease-out;
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .header::before {
+            content: "🌺🏄‍♀️🌴";
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            animation: headerDecoration 4s ease-in-out infinite;
+        }
+
+        @keyframes headerDecoration {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8em;
+            color: #FF69B4;
+            text-shadow: 4px 4px 0px #87CEEB, 8px 8px 0px rgba(255,105,180,0.3);
+            margin-bottom: 15px;
+            animation: titleBounce 3s ease-in-out infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes titleBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-12px) scale(1.05); }
+            60% { transform: translateY(-6px) scale(1.02); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #4169E1;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .birthday-girl {
+            text-align: center;
+            margin: 35px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #FFE4E1, #E0FFFF, #F0E68C);
+            border-radius: 25px;
+            border: 4px dashed #FF69B4;
+            position: relative;
+            animation: birthdayGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes birthdayGlow {
+            from { box-shadow: 0 0 20px rgba(255,105,180,0.3); }
+            to { box-shadow: 0 0 30px rgba(255,105,180,0.6); }
+        }
+
+        .birthday-girl::before {
+            content: "🎂🎈🎉";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1.5em;
+        }
+
+        .birthday-name {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.4em;
+            color: #FF1493;
+            margin-bottom: 12px;
+            text-shadow: 3px 3px 0px #87CEEB;
+        }
+
+        .birthday-age {
+            font-size: 1.6em;
+            color: #4169E1;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .countdown {
+            background: linear-gradient(135deg, #FF69B4, #87CEEB, #98FB98);
+            background-size: 300% 300%;
+            animation: gradientCountdown 4s ease infinite;
+            color: white;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 35px 0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        @keyframes gradientCountdown {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .countdown h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.7em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 18px 12px;
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: countdownPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes countdownPulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .countdown-number {
+            font-size: 2em;
+            font-weight: 700;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .countdown-label {
+            font-size: 0.95em;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .party-details {
+            margin: 35px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(90deg, #E0FFFF, #FFE4E1, #F0E68C);
+            border-radius: 20px;
+            border-left: 6px solid #FF69B4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            animation: detailFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes detailFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .detail-icon {
+            font-size: 1.8em;
+            margin-right: 18px;
+            width: 40px;
+            animation: iconSpin 4s ease-in-out infinite;
+        }
+
+        @keyframes iconSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .detail-text {
+            flex: 1;
+            font-weight: 700;
+            color: #333;
+            font-size: 1.05em;
+        }
+
+        .maps-btn {
+            background: linear-gradient(45deg, #4285F4, #34A853);
+            color: white;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 30px;
+            font-family: 'Balsamiq Sans', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 12px;
+            box-shadow: 0 6px 15px rgba(66,133,244,0.4);
+        }
+
+        .maps-btn:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 10px 25px rgba(66,133,244,0.6);
+        }
+
+        .rsvp-section {
+            background: linear-gradient(135deg, #98FB98, #87CEEB, #DDA0DD);
+            background-size: 400% 400%;
+            animation: rsvpGradient 6s ease infinite;
+            padding: 30px;
+            border-radius: 25px;
+            margin: 35px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        @keyframes rsvpGradient {
+            0%, 100% { background-position: 0% 50%; }
+            33% { background-position: 50% 0%; }
+            66% { background-position: 100% 50%; }
+        }
+
+        .rsvp-section::before {
+            content: "🏝️🌊🐠";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.3em;
+        }
+
+        .rsvp-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.7em;
+            color: white;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin: 18px 0;
+        }
+
+        .form-group label {
+            display: block;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            font-size: 1.1em;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 18px;
+            font-family: 'Balsamiq Sans', sans-serif;
+            font-size: 1.05em;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: inset 3px 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
+        }
+
+        .rsvp-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 30px;
+            font-family: 'Balsamiq Sans', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(255,105,180,0.4);
+            animation: buttonGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes buttonGlow {
+            from { box-shadow: 0 8px 20px rgba(255,105,180,0.4); }
+            to { box-shadow: 0 12px 30px rgba(255,105,180,0.7); }
+        }
+
+        .rsvp-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+        }
+
+        .gifts-section {
+            background: linear-gradient(135deg, #FFE4E1, #F0E68C, #E0FFFF);
+            background-size: 400% 400%;
+            animation: giftsGradient 8s ease infinite;
+            padding: 30px;
+            border-radius: 25px;
+            margin: 35px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        @keyframes giftsGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .gifts-section::before {
+            content: "🎁🎀🛍️";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.3em;
+        }
+
+        .section-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.7em;
+            color: #FF69B4;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        .gift-categories {
+            display: grid;
+            gap: 20px;
+        }
+
+        .gift-category {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 6px solid #FF69B4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gift-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-title {
+            font-weight: 700;
+            color: #4169E1;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+
+        .category-title span {
+            margin-right: 12px;
+            font-size: 1.4em;
+            animation: categoryIcon 2s ease-in-out infinite;
+        }
+
+        @keyframes categoryIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .gift-items {
+            color: #333;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+
+        .gallery-section {
+            margin: 35px 0;
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: "📸🌺📷";
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.3em;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #E0FFFF, #FFE4E1, #F0E68C);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed #FF69B4;
+            font-size: 2.2em;
+            color: #FF69B4;
+            transition: transform 0.3s;
+            animation: photoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.1);
+        }
+
+        /* Nova classe para as imagens da galeria */
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 17px; /* Para manter o arredondamento */
+        }
+
+        .footer {
+            text-align: center;
+            margin: 35px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 248, 255, 0.9));
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .footer::before {
+            content: "🌺🏄‍♀️🌴🎉🏝️";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #FF69B4, #87CEEB);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+        }
+
+        .footer-text {
+            color: #4169E1;
+            font-weight: 700;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                margin: 10px 5px;
+                padding: 25px 18px;
+            }
+            
+            .title {
+                font-size: 2.2em;
+            }
+            
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                padding: 15px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.6em;
+            }
+            
+            .floating-elements .stitch,
+            .floating-elements .lilo,
+            .floating-elements .ukulele,
+            .floating-elements .surfboard {
+                font-size: 45px;
+            }
+            
+            .floating-elements .sun,
+            .floating-elements .palm1,
+            .floating-elements .palm2 {
+                font-size: 40px;
+            }
+        }
+
+        /* Elementos flutuantes adicionais para mobile */
+        .wave-decoration {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(90deg, transparent, rgba(135,206,235,0.3), transparent);
+            animation: waveMove 4s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes waveMove {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="wave-decoration"></div>
+    
+    <div class="floating-elements">
+        <div class="stitch">🛸</div>
+        <div class="lilo">🌺</div>
+        <div class="sun">☀️</div>
+        <div class="palm1">🌴</div>
+        <div class="palm2">🌴</div>
+        <div class="hibiscus1">🌺</div>
+        <div class="hibiscus2">🌸</div>
+        <div class="ukulele">🎸</div>
+        <div class="surfboard">🏄‍♀️</div>
+        <div class="pineapple">🍍</div>
+        <div class="coconut">🥥</div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1 class="title">Aloha!</h1>
+                <p class="subtitle">Você está convidado(a) para uma festa incrível!</p>
+            </div>
+
+            <div class="birthday-girl">
+                <div class="birthday-name">Ketlyn Sophya</div>
+                <div class="birthday-age">está fazendo 12 aninhos! 🎂</div>
+                <div class="photo-grid">
+                    <div class="photo-placeholder"><img src="/img/Imagem do WhatsApp de 2025-08-31 à(s) 17.21.40_7ec9f078.jpg" alt="Foto 1" class="photo-img"></div>
+                </div>
+            </div>
+
+            <div class="countdown">
+                <h3>🎉 Contagem Regressiva para o Paraíso! 🎉</h3>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="party-details">
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <span class="detail-text">Segunda-feira, 15 de Setembro de 2025</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-icon">⏰</span>
+                    <span class="detail-text">18:00 horas - Vamos surfar na diversão!</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-icon">🏠</span>
+                    <div class="detail-text">
+                        <strong>Casa da Ketlyn Sophya</strong><br>
+                        Vila São Francisco, Nº 17<br>
+                        Bairro Caixa d'Água<br>
+                        <button class="maps-btn" onclick="openMaps()">📍 Ver no Google Maps</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rsvp-section">
+                <h3 class="rsvp-title">🌺 Confirme sua Presença no Paraíso! 🌺</h3>
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="guestName">🌸 Seu Nome:</label>
+                        <input type="text" id="guestName" name="guestName" required placeholder="Digite seu nome aqui...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adults">👥 Número de Adultos:</label>
+                        <select id="adults" name="adults">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="children">👶 Número de Crianças:</label>
+                        <select id="children" name="children">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4+">4+</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="rsvp-btn" onclick="sendRSVP()">
+                        💬 Confirmar pelo WhatsApp - Ohana!
+                    </button>
+                </form>
+            </div>
+
+            <div class="gifts-section">
+                <h3 class="section-title">🎁 Sugestões de Presentes para a Ketlyn! 🎁</h3>
+                <div class="gift-categories">
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>👗</span>
+                            Roupas (Idade 10-12 anos)
+                        </div>
+                        <div class="gift-items">
+                            Vestidos estilosos, blusas da moda, shorts, calças jeans, pijamas temáticos, casacos, fantasias
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>👟</span>
+                            Calçados (Tamanho 33-34)
+                        </div>
+                        <div class="gift-items">
+                            Tênis estilosos, sandálias havaianas, chinelos fofos, sapatilhas, botas
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>🎮</span>
+                            Eletrônicos & Jogos
+                        </div>
+                        <div class="gift-items">
+                            Jogos de videogame, fones de ouvido, capas de celular, jogos de tabuleiro modernos, quebra-cabeças
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>💄</span>
+                            Beleza & Acessórios
+                        </div>
+                        <div class="gift-items">
+                            Kits de maquiagem infantil, esmaltes, bijuterias, bolsas, mochilas estilosas, nécessaires
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>📚</span>
+                            Livros & Arte
+                        </div>
+                        <div class="gift-items">
+                            Livros de aventura, mangás, materiais de desenho, tintas, cadernos personalizados
+                        </div>
+                    </div>
+                    
+                    <div class="gift-category">
+                        <div class="category-title">
+                            <span>🌺</span>
+                            Decoração & Diversos
+                        </div>
+                        <div class="gift-items">
+                            Almofadas decorativas, luzes LED, plantas pequenas, porta-retratos, itens do Lilo & Stitch
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3 class="section-title">📸 Galeria da Aniversariante 📸</h3>
+                <div class="photo-grid">
+                    <div class="photo-placeholder"><img src="/img/Imagem do WhatsApp de 2025-08-31 à(s) 17.21.39_64fb5ff0.jpg" alt="Foto 1" class="photo-img"></div>
+                    <div class="photo-placeholder"><img src="/img/Imagem do WhatsApp de 2025-08-31 à(s) 17.21.40_20df9a88.jpg" alt="Foto 2" class="photo-img"></div>
+                    <div class="photo-placeholder"><img src="/img/Imagem do WhatsApp de 2025-08-31 à(s) 17.21.40_7ec9f078.jpg" alt="Foto 3" class="photo-img"></div>
+                    <div class="photo-placeholder"><img src="/img/Imagem do WhatsApp de 2025-08-31 à(s) 17.21.40_e77ca59f.jpg" alt="Foto 4" class="photo-img"></div>
+                    <div class="photo-placeholder"><img src="https://wallpapers.com/images/hd/disnye-s-lilo-stitch-fun-cast-ukc28s65x9ib6j0b.jpg" alt="Foto 5" class="photo-img"></div>
+                    <div class="photo-placeholder"><img src="https://m.media-amazon.com/images/S/pv-target-images/0ce5b704f290a64a76634b36d9fc699f1a7fe8a362ae1ffb53d656ae743f0dd6.jpg" alt="Foto 6" class="photo-img"></div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p class="footer-text">
+                    🌺 Venha celebrar conosco essa data especial! 🌺<br>
+                    Será uma festa inesquecível no nosso paraíso tropical!<br>
+                    <strong>"Ohana significa família, e família nunca abandona ninguém!"</strong> 💙
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuração da data da festa - 15 de setembro de 2025, 18:00
+        const partyDate = new Date('2025-09-15T18:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = partyDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Atualizar contador a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function openMaps() {
+            const address = 'Vila São Francisco, Número 17, Bairro Caixa d\'Água';
+            const mapsUrl = `https://www.google.com/maps/@-3.3659317,-39.8310365,21z?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D${encodeURIComponent(address)}`;
+            window.open(mapsUrl, '_blank');
+        }
+
+        function sendRSVP() {
+            const name = document.getElementById('guestName').value;
+            const adults = document.getElementById('adults').value;
+            const children = document.getElementById('children').value;
+
+            if (!name.trim()) {
+                alert('🌺 Por favor, insira seu nome para confirmar presença! 🌺');
+                return;
+            }
+
+            const message = `🌺 *CONFIRMAÇÃO DE PRESENÇA* 🌺
+
+*Festa da Ketlyn Sophya - 12 anos*
+*Tema: Lilo & Stitch - Paraíso Tropical*
+
+👤 *Nome:* ${name}
+👥 *Adultos:* ${adults}
+👶 *Crianças:* ${children}
+
+*Data:* Segunda-feira, 15/09/2025
+*Horário:* 18:00 horas
+*Local:* Casa da Ketlyn
+Vila São Francisco, Nº 17 - Bairro Caixa d'Água
+
+Confirmo minha presença nessa festa incrível! 
+"Ohana significa família!" 🏝️💙
+
+Aloha! 🌴🌺`;
+
+            // Substitua pelo número do WhatsApp do organizador (formato: 5585999999999)
+            const whatsappNumber = '+5588996456372';
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Adicionar movimento extra aos elementos flutuantes
+        function addRandomMovement() {
+            const elements = document.querySelectorAll('.stitch, .lilo, .ukulele, .surfboard');
+            elements.forEach((el, index) => {
+                const randomX = (Math.random() - 0.5) * 15;
+                const randomY = (Math.random() - 0.5) * 15;
+                const randomRotation = (Math.random() - 0.5) * 10;
+                
+                setTimeout(() => {
+                    el.style.transform += ` translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg)`;
+                    
+                    setTimeout(() => {
+                        el.style.transform = el.style.transform.replace(
+                            ` translate(${randomX}px, ${randomY}px) rotate(${randomRotation}deg)`, ''
+                        );
+                    }, 2000);
+                }, index * 500);
+            });
+        }
+
+        // Adicionar efeitos de partículas flutuantes ocasionais
+        function createFloatingParticle() {
+            const particles = ['🌺', '🌸', '🏄‍♀️', '🏝️', '🌴', '🥥', '🍍'];
+            const particle = document.createElement('div');
+            particle.innerHTML = particles[Math.floor(Math.random() * particles.length)];
+            particle.style.position = 'fixed';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.fontSize = '20px';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            particle.style.animation = 'floatUp 4s linear forwards';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 4000);
+        }
+
+        // Adicionar keyframe para partículas flutuantes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                from {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(-${window.innerHeight + 100}px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Executar animações periódicas
+        setInterval(addRandomMovement, 5000);
+        setInterval(createFloatingParticle, 3000);
+
+        // Adicionar efeito de entrada suave
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animation = 'cardEntrance 1s ease-out forwards';
+                }, index * 200);
+            });
+        });
+
+        // Efeito de hover nos elementos flutuantes (apenas em desktop)
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.floating-elements > div').forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform += ' scale(1.2)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = this.style.transform.replace(' scale(1.2)', '');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

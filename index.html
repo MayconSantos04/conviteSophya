@@ -390,25 +390,6 @@
             font-size: 1.05em;
         }
 
-        .maps-btn {
-            background: linear-gradient(45deg, #4285F4, #34A853);
-            color: white;
-            border: none;
-            padding: 14px 22px;
-            border-radius: 30px;
-            font-family: 'Balsamiq Sans', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 12px;
-            box-shadow: 0 6px 15px rgba(66,133,244,0.4);
-        }
-
-        .maps-btn:hover {
-            transform: scale(1.08) translateY(-2px);
-            box-shadow: 0 10px 25px rgba(66,133,244,0.6);
-        }
-
         .rsvp-section {
             background: linear-gradient(135deg, #98FB98, #87CEEB, #DDA0DD);
             background-size: 400% 400%;
@@ -803,7 +784,6 @@
                         <strong>Casa da Ketlyn Sophya</strong><br>
                         Vila São Francisco, Nº 17<br>
                         Bairro Caixa d'Água<br>
-                        <button class="maps-btn" onclick="openMaps()">📍 Ver no Google Maps</button>
                     </div>
                 </div>
             </div>
@@ -961,12 +941,6 @@
         // Atualizar contador a cada segundo
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        function openMaps() {
-            const address = 'Vila São Francisco, Número 17, Bairro Caixa d\'Água';
-            const mapsUrl = `https://maps.app.goo.gl/BVCChv4jt24z9pjo6${encodeURIComponent(address)}`;
-            window.open(mapsUrl, '_blank');
-        }
 
         function sendRSVP() {
             const name = document.getElementById('guestName').value;
